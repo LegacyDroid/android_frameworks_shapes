@@ -1,0 +1,16 @@
+android_library {
+    name: "LiquidGlassShapes",
+    srcs: ["shapes/src/main/kotlin/**/*.kt"],
+    platform_apis: true,
+    manifest: "AndroidManifest.xml",
+
+    static_libs: [
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.compose.ui_ui-util",
+    ],
+
+    kotlincflags: [
+        "-opt-in=androidx.compose.runtime.ExperimentalComposeApi",
+    ],
+}
