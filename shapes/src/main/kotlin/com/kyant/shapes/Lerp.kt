@@ -7,7 +7,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.util.fastCoerceIn
+
 import androidx.compose.ui.util.lerp
 
 @Stable
@@ -68,13 +68,13 @@ private data class LerpRoundedRectangle(
             val maxRadius = size.minDimension * 0.5f
             RoundedRectangularShape.Corners(
                 topLeft =
-                    lerp(startCorners.topLeft, stopCorners.topLeft, fraction).fastCoerceIn(0f, maxRadius),
+                    lerp(startCorners.topLeft, stopCorners.topLeft, fraction).coerceIn(0f, maxRadius),
                 topRight =
-                    lerp(startCorners.topRight, stopCorners.topRight, fraction).fastCoerceIn(0f, maxRadius),
+                    lerp(startCorners.topRight, stopCorners.topRight, fraction).coerceIn(0f, maxRadius),
                 bottomRight =
-                    lerp(startCorners.bottomRight, stopCorners.bottomRight, fraction).fastCoerceIn(0f, maxRadius),
+                    lerp(startCorners.bottomRight, stopCorners.bottomRight, fraction).coerceIn(0f, maxRadius),
                 bottomLeft =
-                    lerp(startCorners.bottomLeft, stopCorners.bottomLeft, fraction).fastCoerceIn(0f, maxRadius)
+                    lerp(startCorners.bottomLeft, stopCorners.bottomLeft, fraction).coerceIn(0f, maxRadius)
             )
         }
     }

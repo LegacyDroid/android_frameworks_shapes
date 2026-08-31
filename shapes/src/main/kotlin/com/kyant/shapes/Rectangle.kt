@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 
 @Immutable
-data object Rectangle : RoundedRectangularShape {
+object Rectangle : RoundedRectangularShape {
 
     override fun corners(
         size: Size,

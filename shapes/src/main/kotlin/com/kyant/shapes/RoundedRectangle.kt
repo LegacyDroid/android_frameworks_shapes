@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.util.fastCoerceIn
+
 
 @Immutable
 class RoundedRectangle(
@@ -19,7 +19,7 @@ class RoundedRectangle(
         layoutDirection: LayoutDirection,
         density: Density
     ): RoundedRectangularShape.Corners {
-        val radius = with(density) { cornerRadius.toPx() }.fastCoerceIn(0f, size.minDimension * 0.5f)
+        val radius = with(density) { cornerRadius.toPx() }.coerceIn(0f, size.minDimension * 0.5f)
         return RoundedRectangularShape.Corners(
             topLeft = radius,
             topRight = radius,
@@ -29,7 +29,7 @@ class RoundedRectangle(
     }
 
     override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
-        val radius = with(density) { cornerRadius.toPx() }.fastCoerceIn(0f, size.minDimension * 0.5f)
+        val radius = with(density) { cornerRadius.toPx() }.coerceIn(0f, size.minDimension * 0.5f)
         return roundedRectangleOutline(
             size = size,
             radius = radius,

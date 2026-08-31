@@ -6,7 +6,7 @@ import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.util.fastCoerceIn
+
 
 internal fun roundedRectangleOutline(
     size: Size,
@@ -103,8 +103,8 @@ private fun continuousCurvatureRoundedRectanglePath(
         val h = height.toDouble()
 
         val r = radius.toDouble()
-        val tW = ((width * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
-        val tH = ((height * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
+        val tW = ((width * 0.5 - r) / r).coerceIn(0.0, 1.0)
+        val tH = ((height * 0.5 - r) / r).coerceIn(0.0, 1.0)
         val p = cornerBuilder.getCornerBezierPoints(tW, tH)
         if (p.size < 20) return@apply
 
@@ -205,8 +205,8 @@ private fun continuousCurvatureRoundedRectanglePath(
         val h = height.toDouble()
 
         var r = topRight.toDouble()
-        var tW = ((width * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
-        var tH = ((height * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
+        var tW = ((width * 0.5 - r) / r).coerceIn(0.0, 1.0)
+        var tH = ((height * 0.5 - r) / r).coerceIn(0.0, 1.0)
         var p = cornerBuilder.getCornerBezierPoints(tW, tH)
         if (p.size < 20) return@apply
 
@@ -230,8 +230,8 @@ private fun continuousCurvatureRoundedRectanglePath(
         )
 
         r = bottomRight.toDouble()
-        tW = ((width * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
-        tH = ((height * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
+        tW = ((width * 0.5 - r) / r).coerceIn(0.0, 1.0)
+        tH = ((height * 0.5 - r) / r).coerceIn(0.0, 1.0)
         p = cornerBuilder.getCornerBezierPoints(tW, tH)
         if (p.size < 20) return@apply
 
@@ -255,8 +255,8 @@ private fun continuousCurvatureRoundedRectanglePath(
         )
 
         r = bottomLeft.toDouble()
-        tW = ((width * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
-        tH = ((height * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
+        tW = ((width * 0.5 - r) / r).coerceIn(0.0, 1.0)
+        tH = ((height * 0.5 - r) / r).coerceIn(0.0, 1.0)
         p = cornerBuilder.getCornerBezierPoints(tW, tH)
         if (p.size < 20) return@apply
 
@@ -280,8 +280,8 @@ private fun continuousCurvatureRoundedRectanglePath(
         )
 
         r = topLeft.toDouble()
-        tW = ((width * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
-        tH = ((height * 0.5 - r) / r).fastCoerceIn(0.0, 1.0)
+        tW = ((width * 0.5 - r) / r).coerceIn(0.0, 1.0)
+        tH = ((height * 0.5 - r) / r).coerceIn(0.0, 1.0)
         p = cornerBuilder.getCornerBezierPoints(tW, tH)
         if (p.size < 20) return@apply
 

@@ -1,46 +1,45 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    alias(libs.plugins.android.multiplatform.library)
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     id("com.vanniktech.maven.publish")
 }
 
-kotlin {
-    android {
+android {
+    namespace = "com.kyant.shapes"
+    compileSdk = 34
+    buildToolsVersion = "34.0.0"
+
+    defaultConfig {
         minSdk = 21
-        compileSdk = 37
-        buildToolsVersion = "37.0.0"
-        namespace = "com.kyant.shapes"
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_11
-        }
     }
 
-    applyDefaultHierarchyTemplate()
-
-    jvm("desktop")
-
-    js {
-        browser()
-    }
-    wasmJs {
-        browser()
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
-    macosArm64()
-    iosArm64("iosArm64")
-    iosSimulatorArm64("iosSimulatorArm64")
-
-    sourceSets {
-        val commonMain = getByName("commonMain") {
-            dependencies {
-                implementation(libs.compose.ui)
-            }
-        }
+    kotlinOptions {
+        jvmTarget = "11"
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+    }
+}
+
+dependencies {
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.util)
+    implementation(libs.compose.runtime)
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 mavenPublishing {
@@ -51,7 +50,7 @@ mavenPublishing {
 
     pom {
         name.set("Shapes")
-        description.set("iOS-like shapes for Compose Multiplatform")
+        description.set("iOS-like shapes for Compose")
         inceptionYear.set("2026")
         url.set("https://github.com/Kyant0/Shapes")
         licenses {

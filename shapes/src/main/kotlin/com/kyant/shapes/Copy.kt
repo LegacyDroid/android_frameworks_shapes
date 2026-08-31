@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.isSpecified
-import androidx.compose.ui.util.fastCoerceIn
+
 
 @Stable
 fun RoundedRectangularShape.copy(
@@ -72,17 +72,17 @@ private data class CopyRoundedRectangle(
         with(density) {
             when (layoutDirection) {
                 LayoutDirection.Ltr -> {
-                    if (topStart.isSpecified) topLeft = topStart.toPx().fastCoerceIn(0f, maxRadius)
-                    if (topEnd.isSpecified) topRight = topEnd.toPx().fastCoerceIn(0f, maxRadius)
-                    if (bottomEnd.isSpecified) bottomRight = bottomEnd.toPx().fastCoerceIn(0f, maxRadius)
-                    if (bottomStart.isSpecified) bottomLeft = bottomStart.toPx().fastCoerceIn(0f, maxRadius)
+                    if (topStart.isSpecified) topLeft = topStart.toPx().coerceIn(0f, maxRadius)
+                    if (topEnd.isSpecified) topRight = topEnd.toPx().coerceIn(0f, maxRadius)
+                    if (bottomEnd.isSpecified) bottomRight = bottomEnd.toPx().coerceIn(0f, maxRadius)
+                    if (bottomStart.isSpecified) bottomLeft = bottomStart.toPx().coerceIn(0f, maxRadius)
                 }
 
                 LayoutDirection.Rtl -> {
-                    if (topStart.isSpecified) topRight = topStart.toPx().fastCoerceIn(0f, maxRadius)
-                    if (topEnd.isSpecified) topLeft = topEnd.toPx().fastCoerceIn(0f, maxRadius)
-                    if (bottomEnd.isSpecified) bottomLeft = bottomEnd.toPx().fastCoerceIn(0f, maxRadius)
-                    if (bottomStart.isSpecified) bottomRight = bottomStart.toPx().fastCoerceIn(0f, maxRadius)
+                    if (topStart.isSpecified) topRight = topStart.toPx().coerceIn(0f, maxRadius)
+                    if (topEnd.isSpecified) topLeft = topEnd.toPx().coerceIn(0f, maxRadius)
+                    if (bottomEnd.isSpecified) bottomLeft = bottomEnd.toPx().coerceIn(0f, maxRadius)
+                    if (bottomStart.isSpecified) bottomRight = bottomStart.toPx().coerceIn(0f, maxRadius)
                 }
             }
         }

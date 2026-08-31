@@ -7,7 +7,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.fastCoerceIn
+
 
 @Immutable
 class UnevenRoundedRectangle(
@@ -37,10 +37,10 @@ class UnevenRoundedRectangle(
         density: Density
     ): RoundedRectangularShape.Corners {
         val maxRadius = size.minDimension * 0.5f
-        val topStart = with(density) { cornerRadii.topStart.toPx() }.fastCoerceIn(0f, maxRadius)
-        val topEnd = with(density) { cornerRadii.topEnd.toPx() }.fastCoerceIn(0f, maxRadius)
-        val bottomEnd = with(density) { cornerRadii.bottomEnd.toPx() }.fastCoerceIn(0f, maxRadius)
-        val bottomStart = with(density) { cornerRadii.bottomStart.toPx() }.fastCoerceIn(0f, maxRadius)
+        val topStart = with(density) { cornerRadii.topStart.toPx() }.coerceIn(0f, maxRadius)
+        val topEnd = with(density) { cornerRadii.topEnd.toPx() }.coerceIn(0f, maxRadius)
+        val bottomEnd = with(density) { cornerRadii.bottomEnd.toPx() }.coerceIn(0f, maxRadius)
+        val bottomStart = with(density) { cornerRadii.bottomStart.toPx() }.coerceIn(0f, maxRadius)
 
         val topLeft: Float
         val topRight: Float

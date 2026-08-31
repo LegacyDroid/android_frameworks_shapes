@@ -13,7 +13,7 @@ import androidx.compose.ui.node.DelegatingNode
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.util.fastCoerceAtMost
+
 import kotlin.math.ceil
 
 fun Modifier.border(
@@ -66,7 +66,7 @@ private class BorderNode(
             if (width == Dp.Hairline) {
                 1f
             } else {
-                ceil(width.toPx().fastCoerceAtMost(minDimension * 0.5f))
+                ceil(width.toPx().coerceAtMost(minDimension * 0.5f))
             }
         val borderSize = Size(size.width - strokeWidthPx, size.height - strokeWidthPx)
         val outline = shape.createOutline(borderSize, layoutDirection, this)
