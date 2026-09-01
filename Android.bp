@@ -6,7 +6,7 @@ android_library {
 
     static_libs: [
         "androidx.compose.runtime_runtime",
-        "androidx.compose.ui_ui",
+        "liquidglass-compose-ui",
         "androidx.compose.ui_ui-util",
     ],
 
