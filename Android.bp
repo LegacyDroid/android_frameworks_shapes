@@ -7,7 +7,7 @@ android_library {
     static_libs: [
         "androidx.compose.runtime_runtime",
         "liquidglass-compose-ui",
-        "androidx.compose.ui_ui-util",
+        "liquidglass-compose-ui-util",
     ],
 
     kotlincflags: [
