@@ -5,7 +5,7 @@ android_library {
     manifest: "AndroidManifest.xml",
 
     static_libs: [
-        "androidx.compose.runtime_runtime",
+        "liquidglass-compose-runtime",
         "liquidglass-compose-ui",
         "liquidglass-compose-ui-util",
     ],
